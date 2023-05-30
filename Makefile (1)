@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Wall 
+
+TARGET = nyuenc
+OBJS = nyuenc.o
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ -pthread
+
+nyuenc.o: nyuenc.c
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f $(OBJS) $(TARGET)
